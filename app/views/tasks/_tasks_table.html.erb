@@ -1,0 +1,27 @@
+<table id="event_tasks" class="datatable table table-striped table-bordered">
+  <caption><h3><%= "Tasks" %></h3></caption>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.title, task %></td>
+        <td><%= truncate(task.description) %></td>
+        <td><%= task.status %></td>
+        <td><%= task.start_time %></td>
+        <td><%= task.end_time %></td>
+        <td><%= table_button_link 'Edit', edit_task_path(task) if can? :edit, task %></td>
+        <td><%= table_button_link 'Destroy', task, method: :delete if can? :destroy, task %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

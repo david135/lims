@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :locations
 
   resources :repairs
-  resources :inspections, except: [:new, :create]
+  resources :inspections, except: [:new, :create], constraints: { id: /\d+/ }
   resources :items do
     resources :repairs
     resources :inspections, only: [:new, :create]
@@ -41,8 +41,11 @@ Rails.application.routes.draw do
   resources :courses
   resources :certs
 
+  resources :tasks, except: [:new, :create], constraints: { id: /\d+/ }
+
   resources :events do
-    resources :availabilities, :controller => 'availabilities'
+    resources :availabilities
+    resources :tasks, only: [:new, :create]
   end
 
   resources :people do
@@ -60,11 +63,11 @@ Rails.application.routes.draw do
       get 'orgchart'
       get 'roster'
     end
-    resources :certs, :controller => 'certs'
-    resources :availabilities, :controller => 'availabilities'
-    resources :titles, :controller => 'titles'
-    resources :items, :controller => 'items'
-    resources :channels, :controller => "channels"
+    resources :certs
+    resources :availabilities
+    resources :titles
+    resources :items
+    resources :channels
   end
 
   root "landing#index"
