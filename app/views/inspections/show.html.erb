@@ -9,7 +9,7 @@
 Inspection of <%= link_to @inspection.item.name, item_path(@inspection.item) %>
 on <%= format_date_value(@inspection.inspection_date) %>.
 <p>Status:
-  <span class="label <%= inspection_label(@inspection) %>">
+  <span <%== inspection_label_class(@inspection) %>>
     <%= @inspection.status %>
   </span>
 </p>

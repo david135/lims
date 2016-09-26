@@ -91,12 +91,17 @@ module ApplicationHelper
   # This is a general helper to provide a simple success or warning
   # label.  For anything more precise, a custom helper should be
   # used (as in items_helper.rb)
-  def success_or_warning_label(str, success_str)
+  def success_or_warning_label_class(str, success_str)
     if str == success_str
-      return 'label-success'
+      return 'class="label label-success"'
     else
-      return 'label-warning'
+      return 'class="label label-warning"'
     end
+  end
+
+  # This is a general helper to provide a simple success tag when appropriate.
+  def success_class_if_match(str, success_str)
+    return 'class="success"' if str == success_str
   end
 
   # This is for providing a date for a form in an order that Rails can understand.
