@@ -18,11 +18,11 @@
   </thead>
   <tbody>
     <% @tasks.each do |task| %>
-      <tr>
+      <tr <%== success_class_if_match(task.status, 'Full') %>>
         <td><%= link_to task.event.title, task.event %></td>
         <td><%= link_to task.title, task %></td>
         <td><%= truncate(task.description) %></td>
-        <td><%= task.status %></td>
+        <td><span <%== task_label_class(task) %>><%= task.status %></span></td>
         <td><%= task.start_time %></td>
         <td><%= task.end_time %></td>
         <td><%= table_button_link 'Edit', edit_task_path(task) if can? :edit, task %></td>

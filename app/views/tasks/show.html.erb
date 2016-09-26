@@ -9,11 +9,11 @@
 Task of <%= link_to @task.event.title, event_path(@task.event) %>
 on <%= format_date_value(@task.event.start_time) %>.
 <p>Status:
-  <span class="label <%= task_label(@task) %>">
+  <span <%== task_label_class(@task) %>>
     <%= @task.status %>
   </span>
 </p>
 
-<% if @task.comments.present? %>
-  <p>Comments: <%= @task.comments %></p>
+<% if @task.description.present? %>
+  <p>Description: <%= @task.description %></p>
 <% end %>

@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <% availabilities.each do |availability| %>
-      <tr>
+      <tr<%== success_class_if_match(availability.status, 'Available') %>>
         <td><%= availability.status %></td>
         <td><time><%= availability.start_time %></time></td>
         <td><%= availability.end_time %></td>
