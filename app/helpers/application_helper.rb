@@ -96,6 +96,7 @@ module ApplicationHelper
   end
 
   # This is a general helper to provide a simple success tag when appropriate.
+  # This should be called with raw or with <%==
   def success_class_if_match(str, success_str)
     return 'class="success"' if str == success_str
   end
