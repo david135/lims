@@ -8,7 +8,6 @@
       <th>Start Time</th>
       <th>End Time</th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +19,6 @@
         <td><%= task.start_time %></td>
         <td><%= task.end_time %></td>
         <td><%= table_button_link 'Edit', edit_task_path(task) if can? :edit, task %></td>
-        <td><%= table_button_link 'Destroy', task, method: :delete if can? :destroy, task %></td>
       </tr>
     <% end %>
   </tbody>

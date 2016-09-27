@@ -9,6 +9,8 @@ module TasksHelper
       return 'class="label label-warning"'
     when 'Empty'
       return 'class="label label-danger"'
+    when 'Cancelled'
+      return 'class="label label-default"'
     else
       # This should only happen if another status is added.
       return 'class="label label-default"'

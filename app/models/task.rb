@@ -9,10 +9,11 @@ class Task < ActiveRecord::Base
   # has_many :requirements
   # has_many :assignments, through: :requirements
 
-  STATUS = ['Empty', 'Partially Filled', 'Full']
+  STATUS = ['Empty', 'Partially Filled', 'Full', 'Cancelled']
 
   def status
-    'Empty'
+    @stub_status ||= STATUS[rand(4)]
+    return @stub_status
   end
 
 end
