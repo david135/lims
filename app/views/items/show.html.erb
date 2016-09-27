@@ -7,9 +7,7 @@
 
 <h3>
   <% if @item.status.present? %>
-  <span <%== item_label_class(@item) %>>
-    <%= @item.status %>
-  </span> &nbsp;
+    <%= item_status_label(@item) %> &nbsp;
   <% end %>
   <%= @item.name %>
   <% if @item.brand.present? || @item.model.present? %>

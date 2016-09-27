@@ -16,7 +16,6 @@
     <%= f.input :end_time, as: :string,
                              input_html: { class: 'datetimepicker', size: 11,
                                value: format_datetime_value(f.object.end_time ? f.object.end_time : @event.end_time) } %>
-    <%#= f.input :status, as: :select, collection: Task::STATUS, selected: 'Empty' %>
   </div>
 
   <div class="form-actions">

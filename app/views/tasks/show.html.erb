@@ -8,11 +8,7 @@
 
 Task of <%= link_to @task.event.title, event_path(@task.event) %>
 on <%= format_date_value(@task.event.start_time) %>.
-<p>Status:
-  <span <%== task_label_class(@task) %>>
-    <%= @task.status %>
-  </span>
-</p>
+<p>Status: <%= task_status_label(@task) %></p>
 
 <% if @task.description.present? %>
   <p>Description: <%= @task.description %></p>

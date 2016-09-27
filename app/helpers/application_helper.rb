@@ -91,12 +91,8 @@ module ApplicationHelper
   # This is a general helper to provide a simple success or warning
   # label.  For anything more precise, a custom helper should be
   # used (as in items_helper.rb)
-  def success_or_warning_label_class(str, success_str)
-    if str == success_str
-      return 'class="label label-success"'
-    else
-      return 'class="label label-warning"'
-    end
+  def success_or_warning_label(str, success_str)
+    content_tag(:span, str, class: success_or_warning_label_class(str, success_str))
   end
 
   # This is a general helper to provide a simple success tag when appropriate.
@@ -115,5 +111,14 @@ module ApplicationHelper
   def format_datetime_value(datetime)
     datetime.strftime("%Y-%m-%d %H:%M") if datetime
   end
+
+  private
+    def success_or_warning_label_class(str, success_str)
+      if str == success_str
+        return 'label label-success'
+      else
+        return 'label label-warning'
+      end
+    end
 
 end
