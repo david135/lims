@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Task, type: :model do
   let(:an_event) { create(:event) }
   it "has a valid factory" do
+    expect(create(:task)).to be_valid
     expect(create(:task, event: an_event)).to be_valid
   end
 
@@ -12,8 +13,12 @@ RSpec.describe Task, type: :model do
     it { should validate_presence_of(:start_time) }
     it { should validate_presence_of(:end_time) }
 
+    it "requires end_time to be after start_time" do #chronology
+      @task = build(:task, event: an_event, start_time: Time.current, end_time: 2.minutes.ago)
+      expect(@task).not_to be_valid
+    end
+
     context 'chronology validations' do #chronology
-      # I'd like there to be a better way to test chronologies. Shoulda?
       let(:start_t)     { 2.days.from_now }
       let(:end_t)       { 4.days.from_now }
       let(:bad_start_t) { 6.days.from_now }

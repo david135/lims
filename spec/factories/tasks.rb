@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :task do
-    event nil
+    association :event
     title "MyString"
     description "MyText"
     street "MyString"

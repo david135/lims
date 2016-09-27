@@ -11,6 +11,8 @@ describe "Tasks" do
     click_on 'Sign in'
   end
 
+  get_nested_editor_views('event', 'task', ['title', 'description', 'street'])
+
   let(:task_title) { "A Fantastic Task" }
   describe "creates" do
     it "tasks" do
