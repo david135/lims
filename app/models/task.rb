@@ -17,7 +17,7 @@ class Task < ActiveRecord::Base
   end
 
   def requirements_count
-    @stub_requirements ||= rand(25)
+    @stub_requirements ||= rand(25) + 1
     return @stub_requirements
   end
 
