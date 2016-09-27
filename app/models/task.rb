@@ -16,4 +16,14 @@ class Task < ActiveRecord::Base
     return @stub_status
   end
 
+  def requirements_count
+    @stub_requirements ||= rand(25)
+    return @stub_requirements
+  end
+
+  def requirements_filled_count
+    @stub_requirements_filled ||= rand(requirements_count)
+    return @stub_requirements_filled
+  end
+
 end
